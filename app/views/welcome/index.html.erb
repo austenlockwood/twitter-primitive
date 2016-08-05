@@ -1,0 +1,13 @@
+<h1>Welcome to Qwitter!</h1>
+<!-- <p>Find me in app/views/welcome/register.html.erb</p> -->
+<main>
+<%= link_to "sign in", new_welcome_path %>
+<%= link_to "register", new_user_path %>
+
+<%= form_for @user, url: "/search", method: :get do %>
+    <%= text_field_tag(:q, params[:q], placeholder: "find someone’s page") %>
+    <%= submit_tag "Search" %>
+
+<% end %>
+
+</main>

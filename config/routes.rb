@@ -1,20 +1,19 @@
 Rails.application.routes.draw do
-  get 'tweets/new'
 
-  get 'tweets/create'
+  root "welcome#index"
+  get "/search" => "users#search"
 
-  get 'tweets/edit'
+  resources :tweets
+  resources :users, only: [:new, :create]
+  resources :welcome
 
-  get 'tweets/delete'
 
-  get 'users/new'
-
-  get 'users/create'
-
-  get 'users/edit'
-
-  get 'users/delete'
-
+  # get 'welcome/sign_in'
+  #
+  # get 'welcome/register'
+  #
+  # get 'welcome/search'
+  #
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

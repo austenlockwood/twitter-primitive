@@ -1,4 +1,9 @@
 class TweetsController < ApplicationController
+
+  def index
+    #code
+  end
+
   def new
   end
 
