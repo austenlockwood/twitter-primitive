@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get "/search" => "users#search"
 
   resources :tweets
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :show, :create]
   resources :welcome
 
 

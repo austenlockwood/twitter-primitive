@@ -8,12 +8,18 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to users_path
+      redirect_to new_welcome_path
     else
       render :new
     end
 
   end
+
+  # def show
+  #   @user = User.find_by(name: params["name"])
+  #   @tweets = Tweet.where(user_id: @user.id)
+  #   @tweet = Tweet.new
+  # end
 
   def search
     @users = User.where("name LIKE ?", "%#{params[:q]}%")
