@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/delete'
+
   root "welcome#index"
   get "/search" => "users#search"
 
