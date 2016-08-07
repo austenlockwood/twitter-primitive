@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
-
-  get 'sessions/new'
-
-  get 'sessions/create'
-
-  get 'sessions/delete'
-
   root "welcome#index"
   get "/search" => "users#search"
 
   resources :tweets
   resources :users, only: [:new, :show, :create]
   resources :welcome
+  resources :sessions
 
 
   # get 'welcome/sign_in'

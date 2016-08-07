@@ -1,7 +1,7 @@
 <h1>Welcome to Qwitter!</h1>
 <!-- <p>Find me in app/views/welcome/register.html.erb</p> -->
 <main>
-<%= link_to "sign in", new_welcome_path %>
+<%= link_to "sign in", new_session_path %>
 <%= link_to "register", new_user_path %>
 
 <%= form_for @user, url: "/search", method: :get do %>
