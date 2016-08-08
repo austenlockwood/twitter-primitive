@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
 
     if @user.authenticate(params[:password])
-      session[:user_id] = @user.id # Actually log in
-      redirect_to user_path
+      session[:user_id] = @user.id # Actually sign in
+      redirect_to users_path
     else
       render :new
     end

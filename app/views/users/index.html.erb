@@ -1,0 +1,16 @@
+<h3>Users</h3>
+<main>
+
+  <% @users.each do |user| %>
+
+  <p>
+    <%= link_to user.name, "/users/#{user.id}" %>
+    <%= link_to "delete user", "/users/#{user.id}", method: :delete,
+    data: { confirm: "Are you sure?" } %>
+  </p>
+
+  <% end %>
+
+  <%= render "shared/user_search" %>
+
+</main>

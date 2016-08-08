@@ -1,0 +1,8 @@
+<main>
+   <h1><%= @user.name %></h1>
+  <%= form_for @user, url: "/users" do |f| %>
+  <%= f.label "New tweet:" %>
+    <%= f.text_field :name %>
+    <%= f.submit "Post" %>
+  <% end %>
+</main>

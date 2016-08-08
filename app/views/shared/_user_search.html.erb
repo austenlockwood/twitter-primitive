@@ -1,0 +1,4 @@
+<%= form_for @user, url: "/search", method: :get do %>
+    <%= text_field_tag(:q, params[:q], placeholder: "find someone’s page") %>
+    <%= submit_tag "Search" %>
+<% end %>

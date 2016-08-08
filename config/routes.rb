@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   root "welcome#index"
   get "/search" => "users#search"
 
-  resources :tweets
-  resources :users, only: [:new, :show, :create]
   resources :welcome
   resources :sessions
+  resources :tweets
+  resources :users
+
+  # resources :users, only: [:new, :show, :create]
 
 
   # get 'welcome/sign_in'

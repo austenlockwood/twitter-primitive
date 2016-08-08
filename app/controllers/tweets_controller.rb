@@ -8,6 +8,9 @@ class TweetsController < ApplicationController
   end
 
   def create
+    @tweet = Tweet.create(tweet_params)
+    @user = @tweet.user
+    redirect_to "/users/#{@user.name}"
   end
 
   def edit

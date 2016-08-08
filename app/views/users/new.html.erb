@@ -1,17 +1,26 @@
-<marquee scrollamount="20"> <img src="http://jabajabba.com/wp-content/uploads/2016/02/welcome-to-johnstown-2.jpg" alt="Welcome to Jonestown" width="50%" /></marquee>
+<h3>Register</h3>
 
 <%= form_for @user, method: :post do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+  <p>
+    <%= link_to "Already a member?", new_session_path %>
+  </p>
 <% end %>

@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+    @user = User.new
+    @tweet = Tweet.new
+  end
+
   def new
     @user = User.new
   end
@@ -8,22 +14,28 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to new_welcome_path
+      redirect_to new_session_path
     else
       render :new
     end
 
   end
 
-  # def show
-  #   @user = User.find_by(name: params["name"])
-  #   @tweets = Tweet.where(user_id: @user.id)
-  #   @tweet = Tweet.new
-  # end
+  def show
+    @user = User.find(params[:id])
+    @tweets = Tweet.where(user_id: @user.id)
+    @tweet = Tweet.new
+  end
 
   def search
     @users = User.where("name LIKE ?", "%#{params[:q]}%")
-    redirect_to tweet_path
+    redirect_to user_path
+  end
+
+  def destroy
+    @user = User.find(params[:id]).destroy
+    flash[:success] = "User deleted"
+    redirect_to users_path
   end
 
   private def user_params
