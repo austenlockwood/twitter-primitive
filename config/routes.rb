@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
+
   root "welcome#index"
+
   get "/search" => "users#search"
 
-  resources :welcome
-  resources :sessions
-  resources :tweets
-  resources :users
+  get '/login' => "sessions#new", as: :login
+    post '/login' => "sessions#create"
+    delete '/login' => "sessions#destroy"
 
+  resources :welcome
+  resources :users
+  resources :tweets
   # resources :users, only: [:new, :show, :create]
 
 

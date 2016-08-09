@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <% if current_user %>
+    <h1>Welcome to Qwitter, <%= current_user.name %>!</h1>
+    <%= link_to "Log Out", login_path, method: :delete %>
+  <% else %>
+    You are not logged in.  Sad.
+  <% end %>
 <%= yield %>
 
 </body>

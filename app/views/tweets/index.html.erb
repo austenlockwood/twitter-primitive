@@ -1,2 +1,14 @@
-<h1>Tweets#new</h1>
-<p>Find me in app/views/tweets/new.html.erb</p>
+<main>
+  <%= form_for @tweet, url: tweets_path do |f| %>
+  <%= f.label :body, "New Tweet" %>
+  <%= f.text_area :body %>
+  <%= f.submit "Post" %>
+  <% end %>
+
+  <% @tweets.each do |twe| %>
+  <p>
+    <%= twe.body %>
+  </p>
+  <% end %>
+
+</main>

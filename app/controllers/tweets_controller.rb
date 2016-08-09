@@ -1,7 +1,8 @@
 class TweetsController < ApplicationController
 
   def index
-    #code
+    @tweet = Tweet.new
+    @tweets = Tweet.all.where(user_id: current_user.id)
   end
 
   def new
@@ -9,13 +10,18 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.create(tweet_params)
-    @user = @tweet.user
-    redirect_to "/users/#{@user.name}"
+    @tweet.update(user_id: current_user.id)
+    redirect_to tweets_path
   end
 
   def edit
   end
 
   def delete
+  end
+
+
+  private def tweet_params
+    params.require("tweet").permit(:body, :user_id)
   end
 end
